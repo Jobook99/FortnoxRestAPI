@@ -24,13 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "boxes")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Boxes.findAll", query = "SELECT b FROM Boxes b"),
-    @NamedQuery(name = "Boxes.findById", query = "SELECT b FROM Boxes b WHERE b.id = :id"),
-    @NamedQuery(name = "Boxes.findByReceiver", query = "SELECT b FROM Boxes b WHERE b.receiver = :receiver"),
-    @NamedQuery(name = "Boxes.findByWeight", query = "SELECT b FROM Boxes b WHERE b.weight = :weight"),
-    @NamedQuery(name = "Boxes.findByShippingcost", query = "SELECT b FROM Boxes b WHERE b.shippingcost = :shippingcost"),
-    @NamedQuery(name = "Boxes.findByRed", query = "SELECT b FROM Boxes b WHERE b.red = :red"),
-    @NamedQuery(name = "Boxes.findByGreen", query = "SELECT b FROM Boxes b WHERE b.green = :green")})
+    @NamedQuery(name = "Boxes.findAll", query = "SELECT b FROM Boxes b")})
 public class Boxes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -122,26 +116,6 @@ public class Boxes implements Serializable {
 
     public void setGreen(int green) {
         this.green = green;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Boxes)) {
-            return false;
-        }
-        Boxes other = (Boxes) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
     }
 
     @Override
